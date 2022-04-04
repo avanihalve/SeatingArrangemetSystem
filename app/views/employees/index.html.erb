@@ -1,21 +1,32 @@
 <center>
-<div class="show_bg_color">
-<h1 style="text-align: center;">Employees Details</h1>
-<br>
+   <div class="show_bg_color">
+      <h1 style="text-align: center;">Employees Details</h1>
+      <br>
+      <br>
+      <% unless @employees.present? %>
+      <p>Employee is not present</p>
+      <% end %>
+      <br>
 
 
+      <% @employees.each do |employee| %>
+      <Strong>Name: </Strong><%= employee.fname %> <%= employee.lname %><br>
+      <strong>Office Id: </strong><%= employee.office_id %> <br>
+      <%= link_to "Show", employee_path(employee), :class => "btn btn-dark" %><br>
+      --------------------------------------------------------------<br>
 
-<br>
+      <% end %>
 
- <% @employees.each do |employee| %>
-    <Strong>Name: </Strong><%= employee.fname %> <%= employee.lname %><br>
-    <strong>Office Id: </strong><%= employee.office_id %> <br>
-    <%= link_to "Show", employee_path(employee), :class => "btn btn-dark" %><br>
-    --------------------------------------------------------------<br>
+      <% if current_user.admin == true %>
+        <%#= link_to 'Add Employee', new_employee_path %>
+        <%= link_to "Add New Employee", new_employee_path, :class => "btn btn-dark" %>
+      <%end%>
+     <%#if current_user.admin == true %>
 
-    <% end %>
-</div>
-  
+      <%#= link_to "Add New Employee", new_employee_path, :class => "btn btn-dark" %>
+      <%# end %>
+   </div>
+
 </center>
 
 

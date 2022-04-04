@@ -18,7 +18,9 @@
         <% end %>
         <% end %>
 
-        <% if current_user.role == 'hr' %>
+         <%# if current_user.role == 'hr' %>
+      <% if current_user.admin == true %>
+
         <%= link_to "Add New Seats", new_seat_path, :class => "btn btn-dark" %>
         <% end %>
     </div>

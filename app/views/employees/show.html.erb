@@ -6,18 +6,21 @@
       <h5 class="card-title"><%= @employee.fname %> <%= @employee.lname %></h5>
 
       <p class="card-text">
+        <% unless current_user.admin == false %>
         <%= @employee.email %><br>
 
         Office ID: <%= @employee.office_id %> <br>
 
         Contact No: <%= @employee.contact %><br>
 
+        <% end %>
+
         Seat Number: <%= @seat.seat_no %><br>
       </p>
 
       <%= link_to "Back", employees_path, :class => "btn btn-primary" %> &nbsp; &nbsp;
       
-      <% if current_user.role == "hr" %>
+      <% if current_user.admin == true %>
 
       <%= link_to "Edit", edit_employee_path(@employee), :class => "btn btn-warning" %> &nbsp; &nbsp;
       <%= link_to "Destroy", employee_path(@employee), data: {
@@ -26,7 +29,13 @@
       }, :class => "btn btn-danger" %>
       <% end %>
 
-    </div>
-  </div>
+       <% if current_user.admin == false %>
+
+      <% if current_user.email == @employee.email %>
+      <%= button_to "Any Query",showall_path(id: params[:id]) %>
+      <% end %>
+      
+      <% end %>
+
 </center>
 

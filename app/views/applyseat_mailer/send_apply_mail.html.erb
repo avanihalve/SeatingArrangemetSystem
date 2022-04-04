@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h4>Employee requested for seat</h4>
-  </body>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+
+  <strong>Name: </strong> <%= @employee.fname %> <%= @employee.lname %><br>
+  <strong>Office ID: </strong> <%= @employee.office_id %><br>
+  <strong>Query</strong>
+  <%= @note %>
+</body>
 
 </html>
+

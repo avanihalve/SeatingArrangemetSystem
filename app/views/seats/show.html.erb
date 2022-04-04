@@ -17,24 +17,13 @@
 
       </p>
 
-      <% if current_user.role == "hr" %>
+      <% if current_user.admin == true %>
 
       <%= link_to "Edit", edit_seat_path(@seat), :class => "btn btn-warning" %> &nbsp; &nbsp;
 
-      <%= link_to "Destroy", seat_path(@seat), data: {
-        method: :delete,
-        turbo_confirm: "Are you sure?"
-      }, :class => "btn btn-danger" %><br>
-
-
-      <% end %><br>
+      <% end %>
 
       <%= link_to "Back", seats_path, :class => "btn btn-primary" %> &nbsp;
-
-      <% if current_user.role == "employee" %>
-      
-      <%= button_to "Apply for Seat", :controller => "seats", :action => "send_mail", :id => @seat.id%><br><br>
-      <% end %>
 
     </div>
   </div>

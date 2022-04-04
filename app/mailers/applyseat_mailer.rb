@@ -1,6 +1,9 @@
 class ApplyseatMailer < ApplicationMailer
 	def send_apply_mail
-		@employee = params[:employee]
-		mail(to: "avihalve@gmail.com", from: @employee.email, subject:"Apply for seat")
-    end
+  	#byebug
+  	@note = params[:note]
+  	@employee = params[:employee]
+  	#@url  = 'http://127.0.0.1:3000/employees/new'
+  	mail(from: @employee.email, to: "avihalve@gmail.com", subject: 'Query mail')
+  end
 end

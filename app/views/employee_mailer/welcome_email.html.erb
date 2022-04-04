@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <p>
-        ======= Employee details ======= <br>
-      </p>
-        <p>
-           <p>Greeting</p><br>
-            <%= @employee.fname %><br>
-          Email ID: <%= @employee.email %><br>
-          Contact Number: <%= @employee.contact %><br>
-          Office Id: <%= @employee.office_id %><br>
-        </p>
-    <p>
-    Your new alloted seat number is:<br>
-    <%= @employee.seat.seat_no %>
-    </p>
-    <p>
-  </body>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <p>
+    ======= Employee details ======= <br>
+  </p>
+  <p>
+   <p>Greeting</p><br>
+   <%= @employee.fname %><br>
+   Email ID: <%= @employee.email %><br>
+   Contact Number: <%= @employee.contact %><br>
+   Office Id: <%= @employee.office_id %><br>
+ </p>
+ <p>
+  Your new alloted seat number is:<br>
+  <%= @employee.seat.seat_no %>
+</p>
+
+<p>This is your username<br>
+ <strong>Username: </strong><%= @employee.email %>
+</p>
+</body>
 </html>

@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :employees
+  #has_many :employees
 
-  enum role: {employee: 0, hr: 1}
+  #enum role: {hr: 1}
 
   after_create :welcome_send
     def welcome_send

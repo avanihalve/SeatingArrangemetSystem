@@ -1,3 +1,5 @@
+ <% if current_user.admin == true %>
+
 
 <center>
   <div class="show_bg_color">
@@ -52,3 +54,8 @@
 </center>
 </div>
 
+<%end%>
+
+ <% if current_user.admin == false %>
+  <h4>Only admin can edit the details of employee!</h4>
+<% end %>

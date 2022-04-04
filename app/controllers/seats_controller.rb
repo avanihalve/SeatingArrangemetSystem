@@ -51,13 +51,7 @@ class SeatsController < ApplicationController
 		flash[:notice] = "Seat Deleted successfully!" 
 	end
 
-	def send_mail
-		@employee = current_user
-	    ApplyseatMailer.with(employee: @employee).send_apply_mail.deliver_now 
-	  
-	    #render :text => "Email send"
-	    flash[:notice] = "You successfully apply for seat" 
-	end
+	
 
 	private
 

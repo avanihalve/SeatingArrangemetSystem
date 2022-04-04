@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+	#before_action :authenticate_user!
 	def index
 		@employees = Employee.all
 	end
@@ -13,6 +14,7 @@ class EmployeesController < ApplicationController
 	end
 
 	def create
+
 		@employee = Employee.new(employee_param)
 
 		if @employee.save
@@ -45,7 +47,7 @@ class EmployeesController < ApplicationController
 
 	def search
 		@employee = params[:query]
-		@employees = Employee.where("employees.office_id like ?", ["%#{@employee}%"])
+		@employees = Employee.where("employees.fname ILIKE ?", ["%#{@employee}%"])
 		render :index
 	end
 
@@ -55,6 +57,20 @@ class EmployeesController < ApplicationController
 
 		redirect_to root_path
 		flash[:notice] = "Employee Deleted successfully!" 
+	end
+
+	def send_mail
+		#@employee = current_user
+		#byebug
+		@employee = Employee.find(params[:employee_id])
+		ApplyseatMailer.with(employee: @employee, note: params[:query]).send_apply_mail.deliver_now 
+		if @employee.save
+			redirect_to @employee
+			flash[:notice] = 'send successfully!'
+		else
+			flash[:error] = 'Failed !'
+			render :new
+		end
 	end
 
 	private

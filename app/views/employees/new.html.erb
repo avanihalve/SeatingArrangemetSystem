@@ -1,50 +1,61 @@
-<center>
-  <div class="show_bg_color">
-  <h1>Add Employee</h1>
+    <% if current_user.admin == true %>
+      
+      
+      <center>
+        <div class="show_bg_color">
+          <h1>Add Employee</h1>
 
-<%= form_with model: @employee do |form| %>
-  <div>
-    <strong><%= form.label :First_Name%></strong><br>
-    <%= form.text_field :fname %>
- </div>
+          <%= form_with model: @employee do |form| %>
+          <div>
+            <strong><%= form.label :First_Name%></strong><br>
+            <%= form.text_field :fname %>
+          </div>
 
-  <div>
-    <strong><%= form.label :Last_Name %></strong><br>
-    <%= form.text_field :lname %><br>
-   
-  </div>
+          <div>
+            <strong><%= form.label :Last_Name %></strong><br>
+            <%= form.text_field :lname %><br>
+            
+          </div>
 
-   <div>
-    <strong><%= form.label :Office_ID %></strong><br>
-    <%= form.text_field :office_id %><br>
- 
-  </div>
+          <div>
+            <strong><%= form.label :Office_ID %></strong><br>
+            <%= form.text_field :office_id %><br>
+            
+          </div>
 
-   <div>
-    <strong><%= form.label :Email_ID %></strong><br>
-    <%= form.text_field :email %><br>
- 
-  </div>
+          <div>
+            <strong><%= form.label :Email_ID %></strong><br>
+            <%= form.text_field :email %><br>
+            
+          </div>
 
-   <div>
-    <strong><%= form.label :Contact_Number %></strong><br>
-    <%= form.text_field :contact %><br>
-   
-  </div>
+          <div>
+            <strong><%= form.label :Contact_Number %></strong><br>
+            <%= form.text_field :contact %><br>
+            
+          </div>
 
-  <div>
-    <strong><%= form.label :Seat_number %></strong><br>
-           <%= form.select:seat_id ,Seat.all.map{|s|s.id} , :prompt => 'Select Seat Number'%>
-</div>
-</strong>
-  <div>
-    <strong><%= form.label :Profile_Photo%></strong><br>
-    <%= form.file_field :avatar, :class => "btn btn-secondary" %>
-  </div><br>
+          <div>
+            <strong><%= form.label :Seat_number %></strong><br>
+            <%= form.select:seat_id, Seat.all.reject{|p| p.employee.present? }.map {|s|s.id }, :prompt => "select seat number" %>
+            <%#= form.select:seat_id ,Seat.all.map{|s|s.id} , :prompt => 'Select Seat Number'%>
+          </div>
+        </strong>
+        <div>
+          <strong><%= form.label :Profile_Photo%></strong><br>
+          <%= form.file_field :avatar, :class => "btn btn-secondary" %>
+        </div><br>
 
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
-</div>
-</center>
+        <div>
+          <%= form.submit %>
+        </div>
+        <% end %>
+      </div>
+    </center>
+    <%end%>
+
+    <% if current_user.admin == false %>
+      <%# if current_user.role ==  %>
+
+    <h4>Only admin can add the employee!</h4>
+    <% end %>
