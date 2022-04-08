@@ -17,21 +17,17 @@
 border-radius: 50%;
 
 }
-
 .show_bg_color{
 background-image: url("image.jpg");
     margin-right: 30%;
     margin-left: 30%;
 }
-
 footer
 {
     width: 100%;
     bottom: 0px;
     position: static;
 }
-
-
 html,
 body {
   height: 100%;
@@ -47,7 +43,7 @@ body {
   background-image: url("backgroud.jpg");
 }
 
-.roundimage{
+/*.roundimage{
   border-radius: 20px;
-}
+}*/
 
