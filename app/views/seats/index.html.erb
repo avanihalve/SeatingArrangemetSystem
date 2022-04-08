@@ -3,27 +3,50 @@
         <h1>Total Seats</h1>
         <br>
 
-        <br>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+          }
 
-        <% unless @employee.present? %>
+          td, th {
+              /*border: 1px solid #dddddd;*/
+              text-align: center;
+              padding: 8px;
+          }
 
-
+          tr:nth-child(even) {
+              background-color: #dddddd;
+          }
+      </style>
+      <table>
+          <tr>
+            <th>Seat Number</th>
+            <th >Action</th>
+            <th >Status</th>
+        </tr>
         <% @seats.each do |seat| %>
-        
-        <strong>Seat Number: </strong> <%= seat.seat_no %> <br>
+        <tr>
+            <td><%= seat.seat_no %></td>
+            <td><%= link_to "Show", seat_path(seat), :class => "btn btn-dark" %>                </td>
+            <td>
+                <% if seat.employee.present? %>
+                <%= link_to "Occupied", seat_path(seat), :class => "btn btn-danger" %></td>
+                <% else %>
+                <%= link_to "Vacant", seat_path(seat), :class => "btn btn-success" %>
+                <% end %>
+            </td>
+            <% end %>
+        </tr>
+</table>
+<% if current_user.admin == true %>
+<%= link_to "Add New Seats", new_seat_path, :class => "btn btn-dark" %>  <br>
+<% end %>
+<br>
+</div>
+<br>
 
-        <%= link_to "Show", seat_path(seat), :class => "btn btn-dark" %><br>
-        
-        ---------------------------------------------------<br>
-        <% end %>
-        <% end %>
-
-         <%# if current_user.role == 'hr' %>
-      <% if current_user.admin == true %>
-
-        <%= link_to "Add New Seats", new_seat_path, :class => "btn btn-dark" %>
-        <% end %>
-    </div>
 </center>
 
 

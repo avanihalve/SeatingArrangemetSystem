@@ -57,6 +57,7 @@
                   <% end %>
                 </ul>
               </li>
+
               <% end %>
 
               &emsp;&emsp; &emsp; &emsp;&emsp; &emsp; 
@@ -72,7 +73,7 @@
                   <div class="container" class="justify-content-right">
                     <div class="row height d-flex justify-content-right align-items-right">
                       <table>
-                        <td><input type="/search" class="form-control" placeholder="Search by First Name" aria-label="Search" 
+                        <td><input type="/search" class="form-control" placeholder="Search by First Name or Office-ID" aria-label="Search" 
                          name="query" method = "GET" class="form-control form-control"> </td>
                          <td><button class="btn btn-dark col-md-12" type="submit" >Search</button> 
                           <td><% if user_signed_in? %>
@@ -106,12 +107,36 @@
                 <br>
 
               </div>
-              <div style="margin-left: 40%; font-size: x-large;">
+              <!-- <div style="margin-left: 40%; font-size: x-large;">
                 <a href="https://taskcraft.in/" style="color: black;">TaskCraft Technologies</a>
               </div>
-              <%= yield %>
-              <br>
+ -->              <%= yield %>
+             
+              <br><br><br><br>
+              <!-- <br><br><br><br>  -->
 
+
+<body class="d-flex flex-column">
+  <div id="page-content">
+    <div class="container text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-7">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
+    <div class="container text-center">
+  <a href="#"> <i class="fa fa-facebook" style="font-size:30px; color: #ffffff"></i></a> &emsp;
+  <a href="#"> <i class="fa fa-instagram" style="font-size:30px;color: #ffffff"></i></a>&emsp;
+  <a href="#"> <i class="fa fa-linkedin" style="font-size:30px;color: #ffffff"></i></a>&emsp;
+  <a href="#"> <i class="fa fa-github" style="font-size:30px;color: #ffffff"></i></a>&emsp;
+  <a href="#"> <i class="fa fa-twitter"  style="font-size:30px;color: #ffffff"></i></a>&emsp;
+
+</div>
+</footer>
+</body>
             </div>
           </body>
           </html>

@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get '/search', to: "employees#search"
 
   post '/send_mail', to: 'employees#send_mail'
+  post '/seat_apply_mail', to: 'seats#seat_apply_mail'
 
 end

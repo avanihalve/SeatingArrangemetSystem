@@ -13,8 +13,6 @@
         <%= @seat.employee.lname if @seat.employee.present? %><br>
         <strong>Office_id: </strong><%= @seat.employee.office_id if @seat.employee.present? %><br>
         <strong>Email: </strong><%= @seat.employee.email if @seat.employee.present? %><br>
-
-
       </p>
 
       <% if current_user.admin == true %>
@@ -27,5 +25,21 @@
 
     </div>
   </div>
+<br>
+
+<% if @seat.employee.present? %>
+<span style='font-size:50px;'>&#128526;</span>     
+<% else %>
+<span style='font-size:50px;'>&#128512;</span>
+  <% if current_user.admin == false %>
+ <%= form_with url: seat_apply_mail_path do |form| %>
+         <%#= text_field_tag :query %>
+         <%#= hidden_field_tag :employee_id,  params[:id]%>
+         <%= hidden_field_tag :seat_id,  params[:id]%>
+         <%= form.submit %>
+ <% end %> 
+ <% end %> 
+
+<% end %>
 </center>
 

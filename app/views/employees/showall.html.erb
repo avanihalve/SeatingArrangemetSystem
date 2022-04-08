@@ -1,13 +1,12 @@
 <center>
-<h2>Have any query!</h2>
-<h5>Write it here.</h5>
-<div class="modal-body">
+   <h2>Have any query!</h2>
+   <h5>Write it here.</h5>
+   <div class="modal-body">
 
-   <%= form_with url: send_mail_path do |form| %>
-    <%= text_field_tag :query %>
-  
-    <%= hidden_field_tag :employee_id,  params[:id]%>
-    <%= form.submit %>
-    <% end %>
-</div>
+      <%= form_with url: send_mail_path do |form| %>
+         <%= text_field_tag :query %>
+         <%= hidden_field_tag :employee_id,  params[:id]%>
+         <%= form.submit %>
+      <% end %>
+   </div>
 </center>

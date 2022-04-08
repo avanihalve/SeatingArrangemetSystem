@@ -3,7 +3,7 @@
       
       <center>
         <div class="show_bg_color">
-          <h1>Add Employee</h1>
+          <h1>Add New Employee</h1>
 
           <%= form_with model: @employee do |form| %>
           <div>
@@ -48,14 +48,13 @@
 
         <div>
           <%= form.submit %>
-        </div>
+        </div><br>
         <% end %>
       </div>
     </center>
     <%end%>
 
     <% if current_user.admin == false %>
-      <%# if current_user.role ==  %>
-
     <h4>Only admin can add the employee!</h4>
     <% end %>
+

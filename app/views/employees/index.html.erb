@@ -3,30 +3,46 @@
       <h1 style="text-align: center;">Employees Details</h1>
       <br>
       <br>
+      <style>
+         table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+       }
+
+       td, th {
+          /*border: 1px solid #dddddd;*/
+          text-align: center;
+          padding: 8px;
+       }
+
+       tr:nth-child(even) {
+          background-color: #dddddd;
+       }
+    </style>
+    <table>
       <% unless @employees.present? %>
       <p>Employee is not present</p>
       <% end %>
       <br>
-
-
-      <% @employees.each do |employee| %>
-      <Strong>Name: </Strong><%= employee.fname %> <%= employee.lname %><br>
-      <strong>Office Id: </strong><%= employee.office_id %> <br>
-      <%= link_to "Show", employee_path(employee), :class => "btn btn-dark" %><br>
-      --------------------------------------------------------------<br>
-
+      <tr>
+        <th>Name</th>
+        <th>Office ID</th>
+        <th>Action</th>
+     </tr>
+     <% @employees.each do |employee| %>
+     <tr>
+      <td><%= employee.fname %> <%= employee.lname %></td>
+      <td><%= employee.office_id %> </td>
+      <td> <%= link_to "Show", employee_path(employee), :class => "btn btn-dark" %></td>
       <% end %>
-
-      <% if current_user.admin == true %>
-        <%#= link_to 'Add Employee', new_employee_path %>
-        <%= link_to "Add New Employee", new_employee_path, :class => "btn btn-dark" %>
-      <%end%>
-     <%#if current_user.admin == true %>
-
-      <%#= link_to "Add New Employee", new_employee_path, :class => "btn btn-dark" %>
-      <%# end %>
-   </div>
-
+   </tr>
+</table>
+<% if current_user.admin == true %>
+<%= link_to "Add New Employee", new_employee_path, :class => "btn btn-dark" %>
+<%end%>
+</div>
+<br>
 </center>
 
 

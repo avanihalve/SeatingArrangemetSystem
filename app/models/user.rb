@@ -9,6 +9,7 @@ class User < ApplicationRecord
   #enum role: {hr: 1}
 
   after_create :welcome_send
+  
     def welcome_send
       WelcomeMailer.welcome_send(self).deliver
       #redirect_to root_path, alert: "thank you for the registration"

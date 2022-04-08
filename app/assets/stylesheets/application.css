@@ -19,7 +19,7 @@ border-radius: 50%;
 }
 
 .show_bg_color{
-    background-color: orange;
+background-image: url("image.jpg");
     margin-right: 30%;
     margin-left: 30%;
 }
@@ -28,6 +28,26 @@ footer
 {
     width: 100%;
     bottom: 0px;
-    position: fixed;;
+    position: static;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+/* Other Classes for Page Styling */
+
+body {
+  background-image: url("backgroud.jpg");
+}
+
+.roundimage{
+  border-radius: 20px;
 }
 

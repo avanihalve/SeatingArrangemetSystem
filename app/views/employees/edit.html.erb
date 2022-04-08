@@ -39,7 +39,8 @@
 
   <div>
     <%= form.label :Seat_number %><br>
-    <%= form.select:seat_id ,Seat.all.map{|s|s.id} , :prompt => 'Select Seat Number'%>
+     <%= form.select:seat_id, Seat.all.reject{|p| p.employee.present? }.map {|s|s.id }, :prompt => "select seat number" %>
+    <%#= form.select:seat_id ,Seat.all.map{|s|s.id} , :prompt => 'Select Seat Number'%>
 </div>
 
   <div>

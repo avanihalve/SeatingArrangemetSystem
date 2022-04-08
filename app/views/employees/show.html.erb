@@ -1,7 +1,7 @@
 <center>
   <div class="card" style="width: 18rem;">
     <p> Profile Photo </p>
-    <p> <%= image_tag @employee.avatar, :size => "260x180" if @employee.avatar.attached? %></p>
+    <p> <%= image_tag @employee.avatar, :size => "260x180", class: "rounded-circle " if @employee.avatar.attached? %></p>
     <div class="card-body">
       <h5 class="card-title"><%= @employee.fname %> <%= @employee.lname %></h5>
 
