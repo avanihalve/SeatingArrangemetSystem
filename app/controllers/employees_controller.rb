@@ -57,7 +57,7 @@ class EmployeesController < ApplicationController
 		ApplyseatMailer.with(employee: @employee, note: params[:query]).send_apply_mail.deliver_now 
 		if @employee.save
 			redirect_to @employee
-			flash[:notice] = 'send successfully!'
+			flash[:notice] = 'mail send successfully!'
 		else
 			flash[:error] = 'Failed !'
 			render :new

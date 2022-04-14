@@ -49,7 +49,7 @@ class SeatsController < ApplicationController
 	def seat_apply_mail
 	    @employee = current_user.email
 	    @seat = Seat.find(params[:seat_id])
-		SeatrequestMailer.with(seat: @seat, employee: @employee).seat_apply_mail.deliver_now 
+		SeatrequestMailer.with(seat: @seat, employee: @employee, name: params[:query]).seat_apply_mail.deliver_now 
 		if @seat.save
 			redirect_to @seat
 			flash[:notice] = 'send successfully!'
