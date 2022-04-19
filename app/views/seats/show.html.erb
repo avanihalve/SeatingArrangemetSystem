@@ -25,28 +25,29 @@
 
     </div>
   </div>
-<br>
+  <br>
   <div class="card" style="width: 18rem;">
 
-     <div class="card-body">
+    <div class="card-body">
       <h5 class="card-title"></h5>
 
       <p class="card-text">
-<% if @seat.employee.present? %>
-<span style='font-size:50px;'>&#128526;</span>     
-<% else %>
-<span style='font-size:50px;'>&#128512;</span>
-  <% if current_user.admin == false %><br>
-  <strong>Wanted to apply for this seat..</strong>
- <%= form_with url: seat_apply_mail_path do |form| %>
-         Enter Name: <%= text_field_tag :query %><br><br>
-         <%= hidden_field_tag :seat_id,  params[:id]%>
-         <%= form.submit %>
- <% end %> 
- <% end %> 
+        <% if @seat.employee.present? %>
+        <span style='font-size:50px;'>&#128526;</span>     
+        <% else %>
+        <span style='font-size:50px;'>&#128512;</span>
+        <% if current_user.admin == false %><br>
+        <strong>Wanted to apply for this seat..</strong>
+        <%= form_with url: seat_apply_mail_path do |form| %>
+        Enter Name: <%= text_field_tag :query %><br>
+        Reason: <%= text_field_tag :reason %><br><br> 
+        <%= hidden_field_tag :seat_id,  params[:id]%>
+        <%= form.submit %>
+        <% end %> 
+        <% end %> 
 
-<% end %>
-</div>
-</div>
-</center>
+        <% end %>
+      </div>
+    </div>
+  </center>
 
